@@ -1,15 +1,14 @@
 module BezierCurves
-
-#= Dependencies: None
+#= 
 Author: Timothy Ward, https://github.com/TimW-24
+Dependencies: Julia Base v1.9
 Bezier Curve Implementation
-Beats registered package "Bezier.jl" in speed & allocations =#
-
+=#
 export bezier
 
 """
     bezier(xcoords::Array{<:Number},ycoords::Array{<:Number},points::Int64)
-Converts control point coordinates to appropriate bezier curve with specified number of points. Defaults to 101 curve points.\n
+Converts control point coordinates to appropriate bezier curve with specified number of points. Defaults to 100 curve points.\n
     OUTPUTS: (bezierX::Array{Float64},bezierY::Array{Float64})
 """
 function bezier(xcoords::Array{<:Number},ycoords::Array{<:Number},points::Int64=100)
