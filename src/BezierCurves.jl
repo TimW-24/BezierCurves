@@ -5,17 +5,17 @@ Bezier Curve Implementation =#
 export bezier
 
 """
-    bezier(xcoords::Array{<:Real},ycoords::Array{<:Real},points::Int64)
+    bezier(xcoords::Array{<:Real},ycoords::Array{<:Real},points::Integer)
 Converts control point coordinates to appropriate bezier curve with specified number of points. Defaults to 100 curve points.\n
-    OUTPUTS: (bezierX::Array{Float64},bezierY::Array{Float64})
+    OUTPUTS: (bezierX::Array{Float},bezierY::Array{Float})
 """
-function bezier(xcoords::Array{<:Real},ycoords::Array{<:Real},points::Int64=100)
+function bezier(xcoords::Array{<:Real},ycoords::Array{<:Real},points::Integer=100)
     if length(xcoords) != length(ycoords)
         throw(ArgumentError("X-coords array and Y-coords array must be the same length!"))
     end #Throws error if coords have been improperly defined
     range = 0:1/(points-1):1 #Defines range of bezier curve points, from points argument
     n = lastindex(xcoords)-1 #No. of control points (0-indexed)
-    (bezierX,bezierY) = (Array{Float64,1}(undef,length(range)),Array{Float64,1}(undef,length(range))) #Defines bezier curve points arrays
+    (bezierX,bezierY) = (Array{Float,1}(undef,length(range)),Array{Float,1}(undef,length(range))) #Defines bezier curve points arrays
     for (ind,t) ∈ enumerate(range)
         (sumX,sumY) = (0,0) #Initiates sums
         for i ∈ eachindex(xcoords)
