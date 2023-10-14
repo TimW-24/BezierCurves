@@ -1,9 +1,7 @@
 module BezierCurves
-#= 
-Author: Timothy Ward, https://github.com/TimW-24
+#= Author: Timothy Ward, https://github.com/TimW-24
 Dependencies: Julia Base v1.9
-Bezier Curve Implementation
-=#
+Bezier Curve Implementation =#
 export bezier
 
 """
@@ -21,19 +19,12 @@ function bezier(xcoords::Array{<:Number},ycoords::Array{<:Number},points::Int64=
     for (ind,t) ∈ enumerate(range)
         (sumX,sumY) = (0,0) #Initiates sums
         for i ∈ eachindex(xcoords)
-            bern = bernstein(t,i-1,n) #Calculates bezier polynomial for each value of t and i
-            sumX = sumX + bern*xcoords[i]
-            sumY = sumY + bern*ycoords[i] #Sums the results over every value of i
+            bern = bernstein(t,i-1,n) #Calculates Bernstein polynomial for each value of t and i
+            (sumX,sumY) = (sumX + bern*xcoords[i],sumY + bern*ycoords[i]) #Sums the results over every value of i
         end
         (bezierX[ind],bezierY[ind]) = (sumX,sumY) #Defines bezier curve co-ordinates for every t
     end
     return (bezierX,bezierY)
 end
-
-"""
-    bernstein(t,i,n)
-Calculates the Bernstein Polynomial of the given inputs.\n
-    OUTPUT: bern::Float64
-"""
-bernstein(t,i,n) = (factorial(n)/(factorial(i)*factorial(n-i)))*(t^i)*((1-t)^(n-i))
+bernstein(t,i,n) = (factorial(n)/(factorial(i)*factorial(n-i)))*(t^i)*((1-t)^(n-i)) #Calculates the Bernstein polynomial of the given inputs
 end #Module: BezierCurves
