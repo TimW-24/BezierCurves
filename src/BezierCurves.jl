@@ -5,11 +5,11 @@ Bezier Curve Implementation =#
 export bezier
 
 """
-    bezier(xcoords::Array{<:Number},ycoords::Array{<:Number},points::Int64)
+    bezier(xcoords::Array{<:Real},ycoords::Array{<:Real},points::Int64)
 Converts control point coordinates to appropriate bezier curve with specified number of points. Defaults to 100 curve points.\n
     OUTPUTS: (bezierX::Array{Float64},bezierY::Array{Float64})
 """
-function bezier(xcoords::Array{<:Number},ycoords::Array{<:Number},points::Int64=100)
+function bezier(xcoords::Array{<:Real},ycoords::Array{<:Real},points::Int64=100)
     if length(xcoords) != length(ycoords)
         throw(ArgumentError("X-coords array and Y-coords array must be the same length!"))
     end #Throws error if coords have been improperly defined
