@@ -1,0 +1,4 @@
+name = "BezierCurves"
+uuid = "621d95a4-ea8d-410f-957f-3a15cc8b4420"
+authors = ["Tim "]
+version = "0.1.0"
