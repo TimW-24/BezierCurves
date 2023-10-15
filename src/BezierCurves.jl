@@ -2,7 +2,7 @@ module BezierCurves
 #= Author: Timothy Ward, https://github.com/TimW-24
 Dependencies: Julia Base v1.9
 Bezier Curve Implementation =#
-export bezier
+export bezier,bernstein
 
 """
     bezier(xcoords::Array{<:Real},ycoords::Array{<:Real},points::Integer)
