@@ -5,7 +5,7 @@ Bezier Curve Implementation =#
 export bezier,bernstein
 
 """
-    bezier(xcoords::Array{<:Real},ycoords::Array{<:Real},points::Integer)
+    bezier(xcoords::Array{<:Real},ycoords::Array{<:Real},points::Integer = 100)
 Converts control point coordinates to appropriate bezier curve with specified number of points. Defaults to 100 curve points.\n
     OUTPUTS: (bezierX::Array{Float64},bezierY::Array{Float64})
 """
