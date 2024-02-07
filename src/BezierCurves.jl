@@ -1,6 +1,6 @@
 module BezierCurves
 #= Author: Timothy Ward, https://github.com/TimW-24
-Dependencies: Julia Base v1.9
+Dependencies: Julia Base v1.10
 Bezier Curve Implementation =#
 export bezier,bernstein
 
